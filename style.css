@@ -36,12 +36,12 @@ table { border-collapse: collapse; border-spacing: 0; }
 body {
     font: 10/40px arial, sans-serif;
     background: wheat; 
-    color: black;
+    color: rgb(29, 26, 26);
     font-size: 19px;
     transition: background 1s ease, color 1s ease;
 }
 
-/* Tombol "Klik disini" */
+/* Tombol */
 #toggleBtn {
     background-color: #29c72f;  
     color: white;               
@@ -53,7 +53,6 @@ body {
     transition: background-color 0.3s, transform 0.2s;
     margin-bottom: 15px;
 }
-
 #toggleBtn:hover {
     background-color: #45a049;  
     transform: scale(1.05);
@@ -67,7 +66,6 @@ ul.slogan {
     margin-top: 5px;
     font-size: 20px;
 }
-
 ul.slogan li.slide {
     display: none;
     font-size: 25px;
@@ -76,12 +74,10 @@ ul.slogan li.slide {
     font-style: italic;
     transition: opacity 0.5s ease;
 }
-
 ul.slogan li.slide.active {
     display: block;
     opacity: 1;
 }
-
 
 /* MODE ALT */
 body.alt {
@@ -97,15 +93,14 @@ body.alt {
     transition: background 1s ease;
 }
 body.alt .container {
-    background-color: rgb(224, 226, 224);
+    background-color: rgb(0, 0, 0);
 }
 
-/* Header & Judul */
+/* Header */
 .header {
     padding: 15px; 
     padding-bottom: 5px;
 }
-
 .header .judul {
     font-size: 30px;          
     font-weight: bold;
@@ -117,22 +112,13 @@ body.alt .container {
     border-right: 3px solid black;
     animation: typing 2.5s steps(100,end) 1 forwards;
 }
-
 @keyframes typing {
     from { width: 0ch; }
     to { width: 17ch; }
 }
-
 body.alt .header .judul {
     color: rgb(231, 123, 46);
     border-right: 3px solid rgb(106, 219, 31);
-}
-
-/* List */
-.header ul li {
-    display: inline-block;
-    margin-top: 20px;
-    margin-right: 10px;
 }
 
 /* Banner */
@@ -149,13 +135,12 @@ body.alt .header .judul {
 body.alt .banner {
     height: 50vh;  
     width: 100%;
-    background-size: contain;   /* fit ke layar tanpa crop */
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    border-top: 10px solid rgb(23, 219, 23);
+    border-top: 10px solid rgb(231, 123, 46);
     border-bottom: 10px solid rgb(11, 227, 11);
 }
-
 
 /* Content */
 .content {
@@ -164,7 +149,7 @@ body.alt .banner {
 .content h2 {
     font-size: 25px;
     font-weight: bold;
-    color: black;
+    color: rgb(46, 43, 43);
 }
 body.alt .content {
     opacity: 0;
@@ -176,16 +161,25 @@ body.alt .content {
 /* Footer */
 .footer {
     background-color: rgb(23, 219, 23);
-    padding: 1px;
+    padding: 0px;
+    text-align: center;
 }
+/* Default: tampilkan copy, sembunyikan extra */
 .footer .copy {
     color: #f9fbe7;
-    text-align: center;
     font-size: 20px;
+    display: block;
 }
-body.alt .footer {
-    opacity: 0;
-    pointer-events: none;
-    height: 0;
-    overflow: hidden;
+.footer .extra-text {
+    display: none;
+    font-size: 23px;
+    color: rgb(241, 229, 229);
+    font-weight: bold;
+}
+/* Mode ALT: ganti teks */
+body.alt .footer .copy {
+    display: none;
+}
+body.alt .footer .extra-text {
+    display: block;
 }
