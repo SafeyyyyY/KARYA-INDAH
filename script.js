@@ -1,50 +1,48 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const images = ["karyaindah.jpg", "karyaindah2.jpg", "karyaindah5.jpg","karyaindah6.jpg"];
-    let currentIndex = 0;
-    const banner = document.querySelector(".banner");
-
-    function changeBanner() {
-        currentIndex = (currentIndex + 1) % images.length;
-        banner.style.backgroundImage = `url(${images[currentIndex]})`;
-    }
-
-    setInterval(changeBanner, 4000);
-
-    const slides = document.querySelectorAll('.slogan li.slide');
-    let currentSlide = 0;
-
-    function nextSlide() {
-        slides[currentSlide].classList.remove('active');
-        slides.forEach(slide => slide.style.color = '');
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.add('active');
-        if (currentSlide === 1) {
-            slides[currentSlide].style.color = 'rgb(231, 123, 46)';
-        }
-    }
-
     const btn = document.getElementById("toggleBtn");
+    const banner = document.querySelector(".banner");
+    const content = document.querySelector(".content");
+    const mapDiv = document.getElementById("map");
+
+    let mapInitialized = false;
+    let showingMap = false; // status tampilan
+
     btn.addEventListener("click", function() {
-        document.body.classList.toggle("alt");
-        nextSlide();
+        if (!showingMap) {
+            // ==== Tampilkan MAP ====
+            banner.style.display = "none";
+            content.style.display = "none";
+            mapDiv.style.display = "block";
+            btn.textContent = "Kembali ke Tampilan Awal";
+            
+            // Inisialisasi map sekali saja
+            if (!mapInitialized) {
+                const map = L.map("map").setView([-0.637827, 123.947821], 15);
 
-        // tampilkan map
-        const mapContainer = document.getElementById("map");
-        mapContainer.style.display = "block";
+                L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'
+                }).addTo(map);
 
-        // inisialisasi hanya sekali
-        if (!mapContainer.classList.contains("loaded")) {
-            const map = L.map('map').setView([-0.502106, 117.153709], 15); // koordinat bisa diganti
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
-            }).addTo(map);
+                const marker = L.marker([-0.637827, 123.947821]).addTo(map)
+                    .bindPopup("<b>Toko Karya Indah</b><br>Soguo, Bolaang Mongondow Selatan");
 
-            // marker lokasi toko
-            L.marker([-0.502106, 117.153709]).addTo(map)
-                .bindPopup("<b>Toko Karya Indah</b><br>Lokasi toko.")
-                .openPopup();
+                // Klik marker → buka Google Maps
+                marker.on("click", function() {
+                    window.open("https://www.google.com/maps/place/Toko+Karya+Indah,+Soguo,+Bolaang+Mongondow+Selatan,+Sulawesi+Utara", "_blank");
+                });
 
-            mapContainer.classList.add("loaded");
+                mapInitialized = true;
+            }
+
+            showingMap = true;
+        } else {
+            // ==== Kembali ke Tampilan Awal ====
+            banner.style.display = "block";
+            content.style.display = "block";
+            mapDiv.style.display = "none";
+            btn.textContent = "Klik Disini Untuk Melihat Lokasi";
+
+            showingMap = false;
         }
     });
 });

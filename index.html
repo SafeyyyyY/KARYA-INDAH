@@ -3,52 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pratikum CSS</title> 
+    <title>Toko Karya Indah</title> 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
-    <!-- Tambahkan Leaflet CSS -->
+    <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
-    <!-- Tambahkan Leaflet JS -->
+    <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-    <style>
-        /* Style tambahan untuk map */
-        #map {
-            height: 400px;       /* bisa diganti jadi 100vh kalau mau fullscreen */
-            width: 100%;
-            display: none;       /* awalnya hidden, muncul pas tombol diklik */
-            margin-top: 10px;
-            border-radius: 8px;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
             <h2 class="judul">TOKO KARYA INDAH</h2>
-            <button id="toggleBtn">Klik Disini Untuk Melihat Selengkapnya</button>
+            <button id="toggleBtn">Klik Disini Untuk Melihat Lokasi</button>
             <ul class="slogan">
                 <li class="slide active">GROSIR | ECER | SEMBAKO | ELEKTRONIK | FURNITURE</li>
                 <li class="slide">ABOUT KARYA INDAH</li>
             </ul>
         </div>
+
+        <!-- Banner -->
         <div class="banner"></div>
 
-        <!-- Tambahkan MAP di sini -->
+        <!-- MAP -->
         <div id="map"></div>
 
+        <!-- Content -->
         <div class="content">
             <h2>Deskripsi</h2>
             <p class="penulis">Dibuat Pada 20 September 2025</p>
-            <p>Karya Indah adalah pusat belanja terpercaya yang menyediakan berbagai kebutuhan rumah tangga dan usaha, mulai dari sembako lengkap, produk elektronik modern, hingga pilihan furniture berkualitas.
-               Dengan layanan grosir maupun eceran, kami hadir untuk memenuhi kebutuhan sehari-hari maupun skala besar, dengan harga terjangkau, kualitas terjamin, dan pelayanan yang ramah.</p>
-            <p>Selain menyediakan produk dengan harga bersaing, Karya Indah selalu berkomitmen menjaga kualitas setiap barang yang kami tawarkan. Kami percaya bahwa kepuasan pelanggan adalah kunci utama kesuksesan, sehingga pelayanan yang cepat, ramah, dan profesional menjadi prioritas kami. Dengan dukungan tim berpengalaman, Karya Indah siap menjadi mitra belanja yang dapat diandalkan oleh keluarga maupun pelaku usaha.</p>    
+            <p>
+                Karya Indah adalah pusat belanja terpercaya yang menyediakan berbagai kebutuhan rumah tangga 
+                dan usaha, mulai dari sembako lengkap, produk elektronik modern, hingga pilihan furniture berkualitas.
+                Dengan layanan grosir maupun eceran, kami hadir untuk memenuhi kebutuhan sehari-hari maupun skala besar,
+                dengan harga terjangkau, kualitas terjamin, dan pelayanan yang ramah.
+            </p>
+            <p>
+                Selain menyediakan produk dengan harga bersaing, Karya Indah selalu berkomitmen menjaga kualitas 
+                setiap barang yang kami tawarkan. Kami percaya bahwa kepuasan pelanggan adalah kunci utama kesuksesan, 
+                sehingga pelayanan yang cepat, ramah, dan profesional menjadi prioritas kami. Dengan dukungan tim berpengalaman, 
+                Karya Indah siap menjadi mitra belanja yang dapat diandalkan oleh keluarga maupun pelaku usaha.
+            </p>    
         </div>
+
+        <!-- Footer -->
         <div class="footer">
             <p class="copy">Copyright &copy; 2025 Karya Indah</p>
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
