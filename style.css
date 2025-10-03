@@ -139,7 +139,7 @@ body.alt .header .judul {
 /* Banner */
 .banner {
     width: auto;
-    height: auto;
+    height: 300px;
     background-size: cover;
     background-position: center;
     border-top: 10px solid rgb(23, 219, 23);
