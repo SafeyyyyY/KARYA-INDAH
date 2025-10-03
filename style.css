@@ -110,11 +110,11 @@ body.alt .container {
     overflow: hidden;
     white-space: nowrap;
     border-right: 3px solid black;
-    animation: typing 2.5s steps(100,end) 1 forwards;
+    animation: typing 3.5s steps(100,end) 1 forwards;
 }
 @keyframes typing {
     from { width: 0ch; }
-    to { width: 17ch; }
+    to { width: 100%; }
 }
 body.alt .header .judul {
     color: rgb(231, 123, 46);
@@ -133,7 +133,7 @@ body.alt .header .judul {
     transition: background-image 1s ease-in-out, height 0.5s ease;
 }
 body.alt .banner {
-    height: 65vh;  
+    height: 55vh;  
     width: 100%;
     background-size: contain;
     background-repeat: no-repeat;
