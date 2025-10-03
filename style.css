@@ -153,6 +153,12 @@ body.alt .banner {
     border-bottom: 10px solid rgb(11, 227, 11);
     
 }
+#map {
+    height: 100vh; 
+    width: 100%;
+    display: none;
+}
+
 
 /* Content */
 .content {
