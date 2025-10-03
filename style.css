@@ -147,12 +147,13 @@ body.alt .header .judul {
     transition: background-image 1s ease-in-out, height 0.5s ease;
 }
 body.alt .banner {
-    height: 60vh;  
+    height: 50vh;  
     width: 100%;
     background-size: contain;   /* fit ke layar tanpa crop */
     background-repeat: no-repeat;
     background-position: center;
-    border: none;               /* opsional */
+    border-top: 10px solid rgb(23, 219, 23);
+    border-bottom: 10px solid rgb(11, 227, 11);
 }
 
 
