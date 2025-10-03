@@ -92,6 +92,7 @@ body.alt {
 /* Container */
 .container {
     width: 100%;
+    max-width: 500px;
     margin: auto;
     background-color: rgb(231, 123, 46);
     transition: background 1s ease;
