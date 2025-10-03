@@ -147,7 +147,6 @@ body.alt .header .judul {
     transition: background-image 0.5s ease-in-out, height 0.5s ease;
 }
 body.alt .banner {
-    width: auto;
     height: 100vh;  
     border: none;
 }
