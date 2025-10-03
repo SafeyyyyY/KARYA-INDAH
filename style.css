@@ -148,8 +148,10 @@ body.alt .header .judul {
 }
 body.alt .banner {
     width: auto;
-    height: 100vh;  
-    border: none;
+    height: 300px;  
+    border-top: 10px solid rgb(23, 219, 23);
+    border-bottom: 10px solid rgb(11, 227, 11);
+    
 }
 
 /* Content */
