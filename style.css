@@ -107,7 +107,7 @@ body.alt .container {
 }
 
 .header .judul {
-    font-size: 40px;          
+    font-size: 30px;          
     font-weight: bold;
     font-family: 'Montserrat', sans-serif;
     color: wheat;
@@ -115,12 +115,12 @@ body.alt .container {
     overflow: hidden;
     white-space: nowrap;
     border-right: 3px solid black;
-    animation: typing 2s steps(100,end) 1 forwards;
+    animation: typing 2.5s steps(100,end) 1 forwards;
 }
 
 @keyframes typing {
     from { width: 0ch; }
-    to { width: 16ch; }
+    to { width: 17ch; }
 }
 
 body.alt .header .judul {
@@ -137,7 +137,8 @@ body.alt .header .judul {
 
 /* Banner */
 .banner {
-    height: 400px;
+    width: auto;
+    height: auto;
     background-size: cover;
     background-position: center;
     border-top: 10px solid rgb(23, 219, 23);
@@ -146,7 +147,6 @@ body.alt .header .judul {
 }
 body.alt .banner {
     height: 100vh;  
-    border: none;
 }
 
 /* Content */
