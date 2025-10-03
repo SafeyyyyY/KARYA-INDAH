@@ -98,6 +98,9 @@ body.alt {
     transition: background 1s ease;
 }
 body.alt .container {
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
     background-color: rgb(224, 226, 224);
 }
 
