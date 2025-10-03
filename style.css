@@ -108,7 +108,7 @@ body.alt .container {
 }
 
 .header .judul {
-    font-size: 40px;          
+    font-size: 30px;          
     font-weight: bold;
     font-family: 'Montserrat', sans-serif;
     color: wheat;
@@ -121,7 +121,7 @@ body.alt .container {
 
 @keyframes typing {
     from { width: 0ch; }
-    to { width: 16ch; }
+    to { width: 18ch; }
 }
 
 body.alt .header .judul {
