@@ -41,7 +41,7 @@ body {
     transition: background 1s ease, color 1s ease;
 }
 
-/* Tombol "Klik disini" */
+/* Tombol */
 #toggleBtn {
     background-color: #29c72f;  
     color: white;               
@@ -82,13 +82,6 @@ ul.slogan li.slide.active {
     opacity: 1;
 }
 
-
-/* MODE ALT */
-body.alt {
-    background: rgb(231, 123, 46);
-    color: wheat;
-}
-
 /* Container */
 .container {
     width: 100%;
@@ -96,9 +89,6 @@ body.alt {
     margin: auto;
     background-color: rgb(231, 123, 46);
     transition: background 1s ease;
-}
-body.alt .container {
-    background-color: rgb(224, 226, 224);
 }
 
 /* Header & Judul */
@@ -124,11 +114,6 @@ body.alt .container {
     to { width: 18ch; }
 }
 
-body.alt .header .judul {
-    color: rgb(231, 123, 46);
-    border-right: 10px solid rgb(106, 219, 31);
-}
-
 /* List */
 .header ul li {
     display: inline-block;
@@ -146,19 +131,13 @@ body.alt .header .judul {
     border-bottom: 10px solid rgb(11, 227, 11);
     transition: background-image 0.5s ease-in-out, height 0.5s ease;
 }
-body.alt .banner {
-    width: auto;
-    height: 300px;  
-    border-top: 10px solid rgb(23, 219, 23);
-    border-bottom: 10px solid rgb(11, 227, 11);
-    
-}
+
+/* Map */
 #map {
     height: 100vh; 
     width: 100%;
-    display: none;
+    display: none;   /* tampil setelah tombol diklik */
 }
-
 
 /* Content */
 .content {
@@ -168,12 +147,6 @@ body.alt .banner {
     font-size: 25px;
     font-weight: bold;
     color: black;
-}
-body.alt .content {
-    opacity: 0;
-    pointer-events: none;
-    height: 0;
-    overflow: hidden;
 }
 
 /* Footer */
@@ -185,10 +158,4 @@ body.alt .content {
     color: #f9fbe7;
     text-align: center;
     font-size: 20px;
-}
-body.alt .footer {
-    opacity: 0;
-    pointer-events: none;
-    height: 0;
-    overflow: hidden;
 }
