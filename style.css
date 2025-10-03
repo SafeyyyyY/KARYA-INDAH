@@ -1,53 +1,59 @@
-body {
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
     font-family: 'Montserrat', sans-serif;
-    background: #f8e0b0;
+    background: #e67e22; /* warna utama */
+}
+
+.container {
+    width: 100%;
+    min-height: 100%;
     margin: 0;
     padding: 0;
 }
 
-.container {
-    width: 80%;
-    margin: auto;
-    background: #fff;
-    padding: 10px;
-    border-radius: 8px;
-}
-
+/* Header */
 .header {
     text-align: center;
     padding: 20px;
     background: #e67e22;
     color: white;
-    border-radius: 8px;
 }
 
 .judul {
     margin: 0;
-    font-size: 24px;
+    font-size: 28px;
+    color: white;
 }
 
 button {
     background: #2ecc71;
     border: none;
-    padding: 10px 15px;
+    padding: 12px 18px;
     color: white;
-    font-size: 14px;
+    font-size: 16px;
     cursor: pointer;
     border-radius: 6px;
     margin-top: 10px;
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 button:hover {
     background: #27ae60;
+    transform: scale(1.05);
 }
 
+/* Slogan */
 .slogan {
     list-style: none;
     padding: 0;
     margin-top: 10px;
     font-style: italic;
+    font-weight: bold;
     color: white;
 }
 
+/* Banner */
 .banner {
     margin-top: 15px;
     background: url("karyaindah.jpg") no-repeat center center/cover;
@@ -55,22 +61,28 @@ button:hover {
     border-radius: 8px;
 }
 
-/* Map hidden by default */
+/* Map */
 #map {
-    height: 400px;
+    height: 100vh; /* full screen */
     width: 100%;
     display: none;
-    margin-top: 10px;
     border-radius: 8px;
 }
 
-.content {
-    margin-top: 20px;
+/* Content & Footer */
+.content, .footer {
+    background: #e67e22;
+    padding: 20px;
+    color: white;
+    border-radius: 8px;
 }
 
-.footer {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 12px;
-    color: #555;
+/* Smooth fade animation */
+.fade {
+    opacity: 1;
+    transition: opacity 0.7s ease;
+}
+.fade.hide {
+    opacity: 0;
+    pointer-events: none;
 }

@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const btn = document.getElementById("toggleBtn");
     const banner = document.querySelector(".banner");
     const content = document.querySelector(".content");
+    const footer = document.querySelector(".footer");
     const mapDiv = document.getElementById("map");
 
     let mapInitialized = false;
@@ -9,14 +10,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
     btn.addEventListener("click", function() {
         if (!showingMap) {
-            // === Tampilkan Map, sembunyikan banner + konten ===
-            banner.style.display = "none";
-            content.style.display = "none";
-            mapDiv.style.display = "block";
+            // Sembunyikan banner, content, footer
+            banner.classList.add("hide");
+            content.classList.add("hide");
+            footer.classList.add("hide");
+
+            // Tampilkan Map
+            setTimeout(() => {
+                banner.style.display = "none";
+                content.style.display = "none";
+                footer.style.display = "none";
+                mapDiv.style.display = "block";
+            }, 600);
+
             btn.textContent = "Kembali ke Tampilan Awal";
 
             if (!mapInitialized) {
-                // Koordinat lokasi Toko Karya Indah
                 const lat = -0.637827;
                 const lng = 123.947821;
 
@@ -29,7 +38,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 const marker = L.marker([lat, lng]).addTo(map)
                     .bindPopup("<b>Toko Karya Indah</b><br>Soguo, Bolaang Mongondow Selatan");
 
-                // Klik marker → buka Google Maps
                 marker.on("click", function() {
                     window.open(
                         "https://www.google.com/maps/place/Toko+Karya+Indah,+Soguo,+Bolaang+Mongondow+Selatan,+Sulawesi+Utara",
@@ -42,10 +50,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
             showingMap = true;
         } else {
-            // === Kembali ke Tampilan Awal ===
+            // Sembunyikan Map, tampilkan kembali konten awal
+            mapDiv.style.display = "none";
             banner.style.display = "block";
             content.style.display = "block";
-            mapDiv.style.display = "none";
+            footer.style.display = "block";
+
+            setTimeout(() => {
+                banner.classList.remove("hide");
+                content.classList.remove("hide");
+                footer.classList.remove("hide");
+            }, 50);
+
             btn.textContent = "Klik Disini Untuk Melihat Lokasi";
 
             showingMap = false;
