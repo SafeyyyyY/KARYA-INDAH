@@ -1,70 +1,31 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const btn = document.getElementById("toggleBtn");
+    const images = ["karyaindah.jpg", "karyaindah2.jpg", "karyaindah5.jpg","karyaindah6.jpg"];
+    let currentIndex = 0;
     const banner = document.querySelector(".banner");
-    const content = document.querySelector(".content");
-    const footer = document.querySelector(".footer");
-    const mapDiv = document.getElementById("map");
 
-    let mapInitialized = false;
-    let showingMap = false;
+    function changeBanner() {
+        currentIndex = (currentIndex + 1) % images.length;
+        banner.style.backgroundImage = `url(${images[currentIndex]})`;
+    }
 
-    btn.addEventListener("click", function() {
-        if (!showingMap) {
-            // Sembunyikan banner, content, footer
-            banner.classList.add("hide");
-            content.classList.add("hide");
-            footer.classList.add("hide");
+    setInterval(changeBanner, 4000);
 
-            // Tampilkan Map
-            setTimeout(() => {
-                banner.style.display = "none";
-                content.style.display = "none";
-                footer.style.display = "none";
-                mapDiv.style.display = "block";
-            }, 600);
+    const slides = document.querySelectorAll('.slogan li.slide');
+    let currentSlide = 0;
 
-            btn.textContent = "Kembali ke Tampilan Awal";
-
-            if (!mapInitialized) {
-                const lat = -0.637827;
-                const lng = 123.947821;
-
-                const map = L.map("map").setView([lat, lng], 15);
-
-                L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-                    attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'
-                }).addTo(map);
-
-                const marker = L.marker([lat, lng]).addTo(map)
-                    .bindPopup("<b>Toko Karya Indah</b><br>Soguo, Bolaang Mongondow Selatan");
-
-                marker.on("click", function() {
-                    window.open(
-                        "https://www.google.com/maps/place/Toko+Karya+Indah,+Soguo,+Bolaang+Mongondow+Selatan,+Sulawesi+Utara",
-                        "_blank"
-                    );
-                });
-
-                mapInitialized = true;
-            }
-
-            showingMap = true;
-        } else {
-            // Sembunyikan Map, tampilkan kembali konten awal
-            mapDiv.style.display = "none";
-            banner.style.display = "block";
-            content.style.display = "block";
-            footer.style.display = "block";
-
-            setTimeout(() => {
-                banner.classList.remove("hide");
-                content.classList.remove("hide");
-                footer.classList.remove("hide");
-            }, 50);
-
-            btn.textContent = "Klik Disini Untuk Melihat Lokasi";
-
-            showingMap = false;
+    function nextSlide() {
+        slides[currentSlide].classList.remove('active');
+        slides.forEach(slide => slide.style.color = '');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+        if (currentSlide === 1) {
+            slides[currentSlide].style.color = 'rgb(231, 123, 46)';
         }
+    }
+
+    const btn = document.getElementById("toggleBtn");
+    btn.addEventListener("click", function() {
+        document.body.classList.toggle("alt");
+        nextSlide();
     });
 });
