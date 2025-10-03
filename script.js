@@ -1,42 +1,23 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const images = ["karyaindah.jpg", "karyaindah2.jpg", "karyaindah5.jpg","karyaindah6.jpg"];
-    let currentIndex = 0;
     const banner = document.querySelector(".banner");
+    const btn = document.getElementById("toggleBtn");
     const mapDiv = document.getElementById("map");
 
-    // Slideshow banner
-    function changeBanner() {
-        currentIndex = (currentIndex + 1) % images.length;
-        banner.style.backgroundImage = `url(${images[currentIndex]})`;
-    }
-    setInterval(changeBanner, 4000);
+    // Inisialisasi peta
+    const map = L.map('map').setView([-6.200000, 106.816666], 13); // contoh: Jakarta
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
 
-    // Inisialisasi peta Leaflet
-    let map;
-    function initMap() {
-        if (!map) {
-            map = L.map('map').setView([-7.782893, 110.366328], 15); // ganti koordinat sesuai lokasi toko
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; OpenStreetMap contributors'
-            }).addTo(map);
-            L.marker([-7.782893, 110.366328]).addTo(map)
-              .bindPopup("Lokasi Toko Karya Indah")
-              .openPopup();
-        }
-    }
+    // Marker lokasi
+    L.marker([-6.200000, 106.816666]).addTo(map)
+        .bindPopup("<b>Toko Karya Indah</b><br>Lokasi di sini.")
+        .openPopup();
 
-    // Tombol toggle
-    const btn = document.getElementById("toggleBtn");
+    // Saat tombol diklik → sembunyikan banner, tampilkan peta
     btn.addEventListener("click", function() {
-        if (banner.style.display !== "none") {
-            banner.style.display = "none";
-            mapDiv.style.display = "block";
-            initMap();
-            btn.textContent = "Kembali ke Tampilan Awal";
-        } else {
-            banner.style.display = "block";
-            mapDiv.style.display = "none";
-            btn.textContent = "Klik Disini Untuk Melihat Selengkapnya";
-        }
+        banner.style.display = "none";       // sembunyikan banner
+        mapDiv.style.display = "block";      // tampilkan map
+        map.invalidateSize();                // refresh peta biar muncul
     });
 });
